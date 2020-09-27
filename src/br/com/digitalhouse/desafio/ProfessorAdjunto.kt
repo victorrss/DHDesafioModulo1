@@ -1,10 +1,11 @@
 package br.com.digitalhouse.desafio
 
-abstract class Professor(
+class ProfessorAdjunto(
         codigo: Int,
         nome: String,
         sobrenome: String,
-        val tempoCasa: Int) : Pessoa(codigo, nome, sobrenome){
+        tempoCasa: Int,
+        horasMonitoria: Int) : Professor(codigo, nome, sobrenome, tempoCasa) {
     override fun equals(other: Any?): Boolean {
         return super.equals(other)
     }
