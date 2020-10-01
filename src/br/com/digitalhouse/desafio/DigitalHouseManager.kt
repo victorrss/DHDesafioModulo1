@@ -61,7 +61,7 @@ class DigitalHouseManager() {
         if (curso.qtdMaxAlunos >= curso.alunos.size)
             throw SemVagasException()
 
-        if (!matriculas.add(Matricula("${codigoAluno}${codigoCurso}".toInt(), aluno, curso)))
+        if (!matriculas.add(Matricula(matriculas.size+1, aluno, curso)))
             throw MatriculaExistenteException()
     }
 
