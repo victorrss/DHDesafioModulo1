@@ -11,8 +11,12 @@ class Matricula(
         if (this === other) return true
         if (other !is Matricula) return false
 
-        if (codigo != other.codigo) return false
+        if (aluno.codigo != other.aluno.codigo && curso.codigo != other.curso.codigo) return false
 
         return true
+    }
+
+    override fun hashCode(): Int {
+        return return aluno.codigo.hashCode() + curso.codigo.hashCode()
     }
 }

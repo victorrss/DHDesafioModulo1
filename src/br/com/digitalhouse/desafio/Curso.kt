@@ -9,7 +9,7 @@ class Curso(val codigo: Int,
 
     fun adicionarUmAluno(aluno: Aluno): Boolean {
         return when {
-            alunos.contains(aluno) -> {
+            !alunos.contains(aluno) && alunos.size < qtdMaxAlunos -> {
                 alunos.add(aluno)
                 true
             }
@@ -28,5 +28,9 @@ class Curso(val codigo: Int,
         if (codigo != other.codigo) return false
 
         return true
+    }
+
+    override fun hashCode(): Int {
+        return return codigo.hashCode()
     }
 }

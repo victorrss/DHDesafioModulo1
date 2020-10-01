@@ -12,4 +12,8 @@ abstract class Pessoa(
 
         return true
     }
+
+    override fun hashCode(): Int {
+        return return codigo.hashCode()
+    }
 }
