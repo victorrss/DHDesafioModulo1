@@ -1,22 +1,23 @@
 package br.com.digitalhouse.desafio
 
-abstract class Curso(val codigo: Int,
-                     val nome: String,
-                     val profTitular: ProfessorTitular,
-                     val profAdjunto: ProfessorAdjunto,
-                     val qtdMaxAlunos: Int) {
-    val alunos = mutableListOf<Aluno>()
+class Curso(val codigo: Int,
+            val nome: String,
+            val qtdMaxAlunos: Int) {
+    val alunos = mutableSetOf<Aluno>()
+    var profTitular: ProfessorTitular? = null
+    var profAdjunto: ProfessorAdjunto? = null
 
     fun adicionarUmAluno(aluno: Aluno): Boolean {
-        if (alunos.contains(aluno)) {
-            alunos.add(aluno)
-            return true
+        return when {
+            alunos.contains(aluno) -> {
+                alunos.add(aluno)
+                true
+            }
+            else -> false
         }
-
-        return false
     }
 
-    fun excluirAluno(aluno: Aluno){
+    fun excluirAluno(aluno: Aluno) {
         alunos.remove(aluno)
     }
 
